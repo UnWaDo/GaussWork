@@ -36,8 +36,7 @@ class Atom:
 
     def to_line(self):
         res = ' ' + ELEMENTS.get(self.atomic_number)
-        np.set_printoptions(suppress=True)
-        res += ' ' + np.array2string(self.coordinates)[1:-1]
+        res += ' ' + np.array2string(self.coordinates, suppress_small=True, precision=6, floatmode='fixed')[1:-1]
         return res + '\n'
 
     def get_distance(self, other):
