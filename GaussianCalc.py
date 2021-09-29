@@ -130,6 +130,7 @@ def write_input_params(
 
     coords = None
     if coordfile == outfile:
+        coords = ''
         cf = open(coordfile)
         for line in cf:
             coords += line
@@ -147,7 +148,7 @@ def write_input_params(
     of.write('# %s %s %s %s\n\n' % (
         method,
         basis,
-        solvent,
+        solvent or '',
         job
     ))
     of.write('Title: %s %s\n\n' % (calc_name, job))
